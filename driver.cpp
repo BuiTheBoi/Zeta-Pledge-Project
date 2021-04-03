@@ -13,7 +13,7 @@
 
 // Includes from files of local machines
 #include "plant.hpp"
-#include "functions.hpp"
+#include "accessories.hpp"
 
 // Standard library includes
 #include <vector>
@@ -23,31 +23,61 @@ int main() {
 
     // Declared variables go here
     vector<Plant> mySaves(3);
+    string menu[3] = {
+                    "[1] Start watering my plants",
+                    "[2] View saved plants",
+                    "[3] Power Off Machine"
+                    };
     int choice;
     
     // Introducing the user
-    cout << BOLDGREEN << "-------------------------------------------" << endl;
+    cout << BOLDGREEN << endl << endl
+        << "-------------------------------------------" << endl;
     cout << "WELCOME TO YOUR AUTOMATIC WATERING MACHINE!" << endl;
     cout << "-------------------------------------------" << RESET << endl;
     moveOn();
 
 
-    // do {
-    //     cout << "Enter the corresponding number next to each choice followed by an enter" << endl;
-    //     cout << "[1] Start watering my plants" << endl;
-    //     cout << "[2] View saved plants" << endl;
-    //     cout << "[3] Turn Off Machine" << endl;
-    //     cin >> choice;
-    // } while (choice != 3);
+    // Viewing main menu
+    cout << BOLDBLUE << endl << endl
+         << "-------------------------------------------" << endl;
+    cout << "               MAIN MENU:                  " << endl;
+    cout << "-------------------------------------------" << RESET << endl << endl;
 
+    do {
+        for (int i = 0 ; i < sizeof(menu)/sizeof(menu[0]); ++i) {
+            cout << menu[i] << endl;
+        }
+        cout << YELLOW << "[Enter a number corresponding to each choice. Then press enter]" << RESET << endl;
+        cin >> choice;
 
+        // Invalid inputs
+        if (choice != 1 || choice != 2 || choice != 3) {
+            system("clear");
+            cout << RED << "INVALID INPUT. PLEASE TRY AGAIN!" << RESET << endl;
+            moveOn();
+        }
 
-    // for (int i = 0 ; i < mySaves.size(); ++i) {
-    //     cout << i + 1 << " " << mySaves[i].getPlantName() << endl;
-    // }
+        if (isdigit(choice) == false) {
+            cout << "NOT A DIGIT" << endl;
+        }
+        
+        switch (choice) {
+            case 1:
+                system("clear");
+                cout << "You chose 1" << endl;
+                break;
+            case 2:
+                system("clear");
+                cout << "You chose 2" << endl;
+                break;
+            case 3:
+                system("clear");
+                cout << "You chose 3" << endl;
+                break;                
+        }
 
-    // View the screen (Start and options)g
-    
+    } while (choice != 3);
 
     // If options, take user input
 

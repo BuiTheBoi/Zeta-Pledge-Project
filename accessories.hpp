@@ -27,7 +27,7 @@ using namespace std;
 // Prompts the user to press the enter key 
 // to move on to the next screen
 void moveOn(){
-    cout << "[Press the enter key to continue]" << endl;
+    cout << YELLOW << "[Press the enter key to continue]" << RESET << endl;
     string empty;
     getline(cin, empty);
     system("clear");
