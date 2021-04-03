@@ -24,6 +24,20 @@ using namespace std;
 #define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
 // --------------------------------------------------------------------------
 
+string menu[3] = {
+    "[1] Start Watering My Plants",
+    "[2] View Saved Plants",
+    "[3] Power Off Machine"
+};
+
+string degreetMsgList[5] = {
+    "Have a beautiful day!",
+    "Cheers!",
+    "See you next time!",
+    "Good bye!",
+    "Thank you for your time!"
+};
+
 // Prompts the user to press the enter key 
 // to move on to the next screen
 void moveOn(){
@@ -31,4 +45,10 @@ void moveOn(){
     string empty;
     getline(cin, empty);
     system("clear");
+}
+
+// Choice 2 of main menu
+void view() {
+    cout << "You chose 2" << endl;
+    moveOn();
 }

@@ -17,24 +17,23 @@
 
 // Standard library includes
 #include <vector>
+#include<cstdlib>
+#include<ctime>
 using namespace std;
 
 int main() {
 
     // Declared variables go here
     vector<Plant> mySaves(3);
-    string menu[3] = {
-                    "[1] Start watering my plants",
-                    "[2] View saved plants",
-                    "[3] Power Off Machine"
-                    };
-    int choice;
+    int choice, degreetMsg;
     
     // Introducing the user
     cout << BOLDGREEN << endl << endl
         << "-------------------------------------------" << endl;
     cout << "WELCOME TO YOUR AUTOMATIC WATERING MACHINE!" << endl;
     cout << "-------------------------------------------" << RESET << endl;
+    cout << BOLDMAGENTA << "Powered by Zeta Pledge Class of ΘT" << RESET 
+    << endl << endl << endl;
     moveOn();
 
 
@@ -50,40 +49,41 @@ int main() {
         }
         cout << YELLOW << "[Enter a number corresponding to each choice. Then press enter]" << RESET << endl;
         cin >> choice;
+        system("clear");
 
         // Invalid inputs
         if (choice != 1 || choice != 2 || choice != 3) {
-            system("clear");
             cout << RED << "INVALID INPUT. PLEASE TRY AGAIN!" << RESET << endl;
             moveOn();
         }
 
-        if (isdigit(choice) == false) {
-            cout << "NOT A DIGIT" << endl;
-        }
         
         switch (choice) {
-            case 1:
-                system("clear");
+            case 1: 
                 cout << "You chose 1" << endl;
                 break;
-            case 2:
-                system("clear");
-                cout << "You chose 2" << endl;
+            case 2:     // View all options
+                view();
                 break;
-            case 3:
-                system("clear");
-                cout << "You chose 3" << endl;
-                break;                
-        }
-
+            case 3:     // Ending program
+                break;
+        }                
     } while (choice != 3);
 
-    // If options, take user input
-
-    // If start, choose which save (plant) to use to water plants
-
-
+     cout << BOLDRED << endl << endl
+         << "-------------------------------------------" << endl;
+    cout << "               POWERING OFF                " << endl;
+    cout << "-------------------------------------------" << RESET << endl << endl;
     
+    // Generator to produce a randomized degreet 
+    // message each time machine is powered off...
+    unsigned seed = time(0);
+    srand(seed);
+    int max = 4,
+        min = 0;
+    degreetMsg = rand() % (max - min + 1) + min;
+
+    cout << MAGENTA << "\t" << degreetMsgList[degreetMsg] << RESET << endl << endl;
+
     return 0;
 }
