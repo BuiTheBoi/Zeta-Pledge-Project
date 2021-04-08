@@ -23,7 +23,7 @@ public:
     void setWaterCapacity(double);
 
     //Others
-    // void waterPlants();
+    void waterPlants(Plant);
 
 };
 
@@ -57,4 +57,9 @@ void Machine::setWaterCapacity(double waterCapacity) { waterCapacity_ = waterCap
 
 double Machine::getWaterCapacity() { return waterCapacity_; }
 
+
 // --------------- OTHERS ---------------
+void Machine::waterPlants(Plant myPlant) {
+    waterCapacity_ -= myPlant.getWaterFlow();
+    
+}

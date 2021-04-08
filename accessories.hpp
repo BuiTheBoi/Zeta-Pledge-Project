@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <vector>
+
+#include "plant.hpp"
 
 using namespace std;
 
@@ -48,9 +51,50 @@ void moveOn(){
 }
 
 // Choice 2 of main menu
-void view() {
-    cout << "You chose 2" << endl;
-    moveOn();
+void view(vector<Plant> myPlants) {
+    int choice;
+    
+    do {
+        // Printing menu
+        cout << BOLDBLUE << "Plant Options:" << RESET << endl << endl;
+        for (int i = 0; i < 3; ++i) {
+            cout << "[" << i + 1 << "] " << myPlants[i].getPlantName() << endl;
+        }
+
+        // Taking user input
+        cout<< YELLOW << "[Enter a number 1-3. Enter 0 to go back]" << RESET << endl;
+        cin >> choice;
+        cin.ignore();
+        system("clear");
+
+        // Processing user input
+        if (choice == 1) {
+            cout << "You chose plant 1" << endl;
+            moveOn();
+            // print out all of the stuff frmo the getters
+            // Label these getters with numbers 
+            // Instructions to choose what to change
+        }
+        else if ( choice == 2 ) {
+            cout << "You chose plant 2" << endl;
+            moveOn();
+        } 
+        else if ( choice == 3 ) {
+            cout << "You chose plant 3" << endl;
+            moveOn();
+        }
+        else if ( choice == 0 ) {
+            cout << "Going back" << endl;
+            moveOn();
+        }
+        else {
+            cout<< "Wrong input. Please enter a number 1-3" << endl;
+            moveOn();
+        }
+    } while (choice != 0);
+
+
+    
 }
 
 // Choice 3 of main menu

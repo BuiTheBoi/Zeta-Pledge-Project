@@ -58,13 +58,13 @@ int main() {
     moveOn();
 
 
-    // Viewing main menu
-    cout << BOLDBLUE << endl << endl
-         << "-------------------------------------------" << endl;
-    cout << "               MAIN MENU:                  " << endl;
-    cout << "-------------------------------------------" << RESET << endl << endl;
-
     do {
+        // Viewing main menu
+        cout << BOLDBLUE << endl << endl
+            << "-------------------------------------------" << endl;
+        cout << "               MAIN MENU:                  " << endl;
+        cout << "-------------------------------------------" << RESET << endl << endl;
+        
         for (int i = 0 ; i < sizeof(menu)/sizeof(menu[0]); ++i) {
             cout << menu[i] << endl;
         }
@@ -84,7 +84,7 @@ int main() {
                 cout << "You chose 1" << endl;
                 break;
             case 2:     // View all options
-                view();
+                view(mySaves);
                 break;
             case 3:     // Ending program
                 powerOff();
