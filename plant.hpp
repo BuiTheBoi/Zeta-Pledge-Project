@@ -11,7 +11,6 @@ private:
     int waterFlow_,         // How much water to give at certain time (Capacity will be determined)
         hour_,              // 1 - 12
         minute_;            // 0 - 59
-    bool hasWater_;         // False by default until water is detected by sensors 
     
 public:
     // Constructors
@@ -34,7 +33,6 @@ public:
 
     // Others
     void activate();
-    bool outOfWater();
 };
 
 
@@ -42,10 +40,10 @@ public:
 
 // --------------- CONSTRUCTORS ---------------
 Plant::Plant(string plantName, int waterFlow, int hour, int minute, string AM_PM): 
-        plantName_(plantName), waterFlow_(waterFlow), hour_(hour), minute_(minute), AMOrPM_(AM_PM), hasWater_(false) {}; 
+        plantName_(plantName), waterFlow_(waterFlow), hour_(hour), minute_(minute), AMOrPM_(AM_PM) {}; 
 
 Plant::Plant(): // Default value: UNIDENTIFIED name pouring 30 units of water at 12:00 PM
-    plantName_("UNIDENTIFIED"), waterFlow_(30), hour_(12), minute_(0), AMOrPM_("PM"), hasWater_(false) {};
+    plantName_("UNIDENTIFIED"), waterFlow_(30), hour_(12), minute_(0), AMOrPM_("PM") {};
 
 
 // --------------- GETTERS ---------------
@@ -73,11 +71,6 @@ void Plant::setHour(int hour) { hour_ = hour; }
 void Plant::setMinute(int minute) { minute_ = minute; }
 
 // --------------- OTHERS ---------------
-void Plant::activate() {
+void Plant::activate() {    // Choice 1 of main menu
     cout << "Activating the machine" << endl;
-}
-
-bool Plant::outOfWater() {
-    if (hasWater_) return false;
-    else return true;
 }

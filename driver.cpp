@@ -11,8 +11,28 @@
 // |_|   |_|  \___// |\___|\___|\__|
 //               |__/
 
+//     o 
+// .oo.Oo.
+//    O. 
+//     Ooo'
+//  ___O___
+//  \     /
+//   \___/
+
+//        _ _
+//       (_\_)
+//      (__<_{}
+//       (_/_)
+//      |\ |   
+//       \\| /|
+//        \|//
+//         |/
+//    ,.,.,|.,.,.
+//    ^`^`^`^`^`^
+
 // Includes from files of local machines
 #include "plant.hpp"
+#include "machine.hpp"
 #include "accessories.hpp"
 
 // Standard library includes
@@ -26,6 +46,7 @@ int main() {
     // Declared variables go here
     vector<Plant> mySaves(3);
     int choice, degreetMsg;
+    string yesNo;
     
     // Introducing the user
     cout << BOLDGREEN << endl << endl
@@ -59,13 +80,14 @@ int main() {
 
         
         switch (choice) {
-            case 1: 
+            case 1:     // Picking which plant save to water
                 cout << "You chose 1" << endl;
                 break;
             case 2:     // View all options
                 view();
                 break;
             case 3:     // Ending program
+                powerOff();
                 break;
         }                
     } while (choice != 3);

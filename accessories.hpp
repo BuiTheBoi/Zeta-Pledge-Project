@@ -1,5 +1,5 @@
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -51,4 +51,9 @@ void moveOn(){
 void view() {
     cout << "You chose 2" << endl;
     moveOn();
+}
+
+// Choice 3 of main menu
+bool powerOff() {
+    return true;
 }
