@@ -2,6 +2,9 @@
 
 #include <iostream>
 #include <string>
+
+// #include "accessories.hpp"
+
 using namespace std;
 
 class Plant {
@@ -33,7 +36,7 @@ public:
 
     // Others
     void activate();
-    // void printStatus();
+    void printStatus(int);
 };
 
 
@@ -74,4 +77,36 @@ void Plant::setMinute(int minute) { minute_ = minute; }
 // --------------- OTHERS ---------------
 void Plant::activate() {    // Choice 1 of main menu
     cout << "Activating the machine" << endl;
+}
+
+void Plant::printStatus(int plantNumber) {
+
+    // // Title to specify which plant it is
+    // cout << BOLDBLUE << endl << endl
+    //     << "-------------------------------------------" << endl;
+    // cout << "               PLANT #" << plantNumber << endl;
+    // cout << "-------------------------------------------" << RESET << endl << endl;
+
+
+    // // Printing all info of the plants
+    // cout << BOLDGREEN << "PLANT NAME" << RESET << getPlantName() << endl;
+    // cout << BOLDGREEN << "TIME TO WATER" << RESET << 
+    //     getHour() << " : " << getMinute() << "  " << getAMOrPM() << endl;
+    // cout << BOLDGREEN << "AMOUNT OF WATER DISTRIBUTED" << RESET << 
+    //     getWaterFlow() << "milliliters" << endl; 
+
+    // ------------------------------- WITHOUT COLORS------------------------------------
+    // Title to specify which plant it is
+    cout << endl << endl
+        << "-------------------------------------------" << endl;
+    cout << "               PLANT #" << plantNumber << endl;
+    cout << "-------------------------------------------" << endl << endl;
+
+
+    // Printing all info of the plants
+    cout << "[1] PLANT NAME = " << getPlantName() << endl;
+    cout << "TIME TO WATER = " << 
+        getHour() << " : " << getMinute() << "  " << getAMOrPM() << endl;
+    cout << "AMOUNT OF WATER DISTRIBUTED = " <<  
+        getWaterFlow() << "milliliters" << endl; 
 }

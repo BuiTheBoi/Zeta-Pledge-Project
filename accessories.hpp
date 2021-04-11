@@ -69,32 +69,22 @@ void view(vector<Plant> myPlants) {
 
         // Processing user input
         if (choice == 1) {
-            cout << "You chose plant 1" << endl;
+            myPlants[choice - 1].printStatus(choice);
             moveOn();
-            // print out all of the stuff frmo the getters
-            // Label these getters with numbers 
-            // Instructions to choose what to change
         }
         else if ( choice == 2 ) {
-            cout << "You chose plant 2" << endl;
+            myPlants[choice - 1].printStatus(choice);
             moveOn();
         } 
         else if ( choice == 3 ) {
-            cout << "You chose plant 3" << endl;
+            myPlants[choice - 1].printStatus(choice);
             moveOn();
         }
-        else if ( choice == 0 ) {
-            cout << "Going back" << endl;
-            moveOn();
-        }
-        else {
+        else if (choice != 0 || choice != 1 || choice != 2 || choice != 3) {
             cout<< "Wrong input. Please enter a number 1-3" << endl;
             moveOn();
         }
     } while (choice != 0);
-
-
-    
 }
 
 // Choice 3 of main menu
