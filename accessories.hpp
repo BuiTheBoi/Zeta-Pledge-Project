@@ -1,6 +1,10 @@
+#ifndef ACCESSORIES
+#define ACCESSORIES
+
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cctype>
 
 #include "plant.hpp"
 
@@ -41,6 +45,7 @@ string degreetMsgList[5] = {
     "Thank you for your time!"
 };
 
+
 // Prompts the user to press the enter key 
 // to move on to the next screen
 void moveOn(){
@@ -50,8 +55,54 @@ void moveOn(){
     system("clear");
 }
 
+// Feature in choice 2 (See below)
+void printPlantStatus(Plant& currentPlant, int plantNumber) {
+
+    // User inputs for plant options
+    int newHour;
+    char yesOrNo;
+    string newName;
+    double newWaterFlow;
+
+
+    // Title to specify which plant it is
+    cout << BOLDBLUE << endl << endl
+        << "-------------------------------------------" << endl;
+    cout << "               PLANT #" << plantNumber << endl;
+    cout << "-------------------------------------------" << RESET << endl << endl;
+
+
+    // Printing all info of the plants
+    cout << BOLDGREEN << "[1] PLANT NAME = " << RESET << currentPlant.getPlantName() << endl;
+    cout << BOLDGREEN << "[2] TIME TO WATER = " << RESET << 
+        currentPlant.getHour() << " : 00" << endl;
+    cout << BOLDGREEN << "[3] AMOUNT OF WATER DISTRIBUTED = " << RESET << 
+        currentPlant.getWaterFlow() << " milliliters" << endl;
+
+    cout << YELLOW << "Do you want to edit these settings? [y/n]" << RESET << endl; 
+    cin >> yesOrNo;
+
+    if (tolower(yesOrNo) == 'y') {
+        cout << YELLOW << "What will be your new plant name? " << RESET;
+        cin.ignore();
+        getline(cin, newName);
+        currentPlant.setPlantName(newName);
+
+        cout << YELLOW << "At what hour of the day do you want to water your plant? (1-24) " << RESET;
+        cin >> newHour;
+        currentPlant.setHour(newHour);
+
+        cout << YELLOW << "How much water do you want this plant to flow? " << RESET;
+        cin >> newWaterFlow;
+        currentPlant.setWaterFlow(newWaterFlow);
+    }
+    else if(tolower(yesOrNo) == 'n') {
+        system("clear");
+    }
+}
+
 // Choice 2 of main menu
-void view(vector<Plant> myPlants) {
+void view(vector<Plant>& myPlants) {
     int choice;
     
     do {
@@ -67,27 +118,21 @@ void view(vector<Plant> myPlants) {
         cin.ignore();
         system("clear");
 
-        // Processing user input
-        if (choice == 1) {
-            myPlants[choice - 1].printStatus(choice);
-            moveOn();
-        }
-        else if ( choice == 2 ) {
-            myPlants[choice - 1].printStatus(choice);
-            moveOn();
-        } 
-        else if ( choice == 3 ) {
-            myPlants[choice - 1].printStatus(choice);
-            moveOn();
-        }
-        else if (choice != 0 || choice != 1 || choice != 2 || choice != 3) {
+
+        if (choice != 0 && choice != 1 && choice != 2 && choice != 3) {
             cout<< "Wrong input. Please enter a number 1-3" << endl;
             moveOn();
         }
+        else {
+            printPlantStatus(myPlants[choice - 1], choice);
+        }
     } while (choice != 0);
 }
+
 
 // Choice 3 of main menu
 bool powerOff() {
     return true;
 }
+
+#endif // ACCESSORIES

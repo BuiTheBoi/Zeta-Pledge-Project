@@ -31,14 +31,15 @@
 //    ^`^`^`^`^`^
 
 // Includes from files of local machines
+
 #include "plant.hpp"
-#include "machine.hpp"
 #include "accessories.hpp"
+#include "machine.hpp"
 
 // Standard library includes
 #include <vector>
-#include<cstdlib>
-#include<ctime>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 int main() {
@@ -78,7 +79,6 @@ int main() {
             moveOn();
         }
 
-        
         switch (choice) {
             case 1:     // Picking which plant save to water
                 cout << "You chose 1" << endl;

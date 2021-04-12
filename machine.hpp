@@ -1,10 +1,11 @@
-#pragma once
+#include "plant.hpp"
+
+#ifndef MACHINE
+#define MACHINE
 
 #include <string>
 #include <iomanip>
 #include <ctime>
-
-#include "plant.hpp"
 
 class Machine {
 private:
@@ -24,14 +25,13 @@ public:
 
     //Others
     void waterPlants(Plant);
-
 };
 
 
 // ========================================== FUNCTION BODIES ==========================================
 
 // --------------- CONSTRUCTORS ---------------
-Machine::Machine(){
+Machine::Machine() {
     setWaterCapacity(0);
 
     // If there is water when powering on
@@ -61,5 +61,6 @@ double Machine::getWaterCapacity() { return waterCapacity_; }
 // --------------- OTHERS ---------------
 void Machine::waterPlants(Plant myPlant) {
     waterCapacity_ -= myPlant.getWaterFlow();
-    
 }
+
+#endif  // Machine
