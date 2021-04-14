@@ -6,5 +6,5 @@
 
 ## How to compile:
 
-        `g++ driver.cpp`
-        `./a.out`
+        `g++ driver.cpp
+        ./a.out`
