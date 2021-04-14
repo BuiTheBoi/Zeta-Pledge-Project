@@ -90,6 +90,12 @@ void printPlantStatus(Plant& currentPlant, int plantNumber) {
 
         cout << YELLOW << "At what hour of the day do you want to water your plant? (1-24) " << RESET;
         cin >> newHour;
+        
+        // Input validation
+        while (newHour > 24 || newHour < 1) {
+            cout << RED <<"Invalid input. Please re-enter your hours (1-24) " << RESET;
+            cin >> newHour;
+        }
         currentPlant.setHour(newHour);
 
         cout << YELLOW << "How much water do you want this plant to flow? " << RESET;
@@ -104,8 +110,9 @@ void printPlantStatus(Plant& currentPlant, int plantNumber) {
 // Choice 2 of main menu
 void view(vector<Plant>& myPlants) {
     int choice;
-    
+
     do {
+
         // Printing menu
         cout << BOLDBLUE << "Plant Options:" << RESET << endl << endl;
         for (int i = 0; i < 3; ++i) {
@@ -118,13 +125,12 @@ void view(vector<Plant>& myPlants) {
         cin.ignore();
         system("clear");
 
-
-        if (choice != 0 && choice != 1 && choice != 2 && choice != 3) {
+        if (choice == 1 || choice == 2 || choice == 3) {
+            printPlantStatus(myPlants[choice - 1], choice);
+        }
+        else if (choice != 0) {
             cout<< "Wrong input. Please enter a number 1-3" << endl;
             moveOn();
-        }
-        else {
-            printPlantStatus(myPlants[choice - 1], choice);
         }
     } while (choice != 0);
 }
