@@ -2,9 +2,9 @@
 
 ## Description:
 
-## Contributors: Justin Bui, Alejendro Osorio, Mariah Olvera, Benson Lee
+## Contributors: 
+Justin Bui, Alejendro Osorio, Mariah Olvera, Benson Lee
 
 ## How to compile:
-
-        g++ driver.cpp
-        ./a.out
+    g++ driver.cpp
+    ./a.out
