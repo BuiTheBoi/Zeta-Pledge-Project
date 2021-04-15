@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Zeta Pledge Project
 
 <img src="Theta_Tau_Zeta_Pledge_Class.png" alt="My cool logo"/>
@@ -34,3 +35,15 @@ Ismael Guzman
 
     g++ driver.cpp
     ./a.out
+=======
+# Zeta Pledge Project
+
+## Description:
+
+## Contributors: 
+Justin Bui, Alejendro Osorio, Mariah Olvera, Benson Lee
+
+## How to compile:
+    g++ driver.cpp
+    ./a.out
+>>>>>>> 12552a45ab0973ad74cf93a030375604ffec909c
