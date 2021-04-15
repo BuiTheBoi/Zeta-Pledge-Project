@@ -190,7 +190,7 @@ void timer()
         seconds++;
         
         // if seconds reaches 60
-        if (seconds == 10) {
+        if (seconds == 11) {
             cout << "Yur plant has been watered :D" << endl;
             moveOn();
             break;
