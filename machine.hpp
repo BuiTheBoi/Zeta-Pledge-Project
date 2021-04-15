@@ -1,4 +1,5 @@
 #include "plant.hpp"
+#include "accessories.hpp"
 
 #ifndef MACHINE
 #define MACHINE
@@ -24,7 +25,8 @@ public:
     void setWaterCapacity(double);
 
     //Others
-    void waterPlants(Plant);
+    void waterPlants(Plant&);
+    void activate();
 };
 
 
@@ -59,8 +61,14 @@ double Machine::getWaterCapacity() { return waterCapacity_; }
 
 
 // --------------- OTHERS ---------------
-void Machine::waterPlants(Plant myPlant) {
+void Machine::waterPlants(Plant& myPlant) {
+    timer();
     waterCapacity_ -= myPlant.getWaterFlow();
 }
+
+void Machine::activate() {
+    timer();
+}
+
 
 #endif  // Machine

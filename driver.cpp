@@ -45,6 +45,7 @@ using namespace std;
 int main() {
 
     // Declared variables go here
+    Machine myMachine;
     vector<Plant> mySaves(3);
     int choice, degreetMsg;
     string yesNo;
@@ -81,7 +82,7 @@ int main() {
 
         switch (choice) {
             case 1:     // Picking which plant save to water
-                cout << "You chose 1" << endl;
+                myMachine.activate();
                 break;
             case 2:     // View all options
                 view(mySaves);

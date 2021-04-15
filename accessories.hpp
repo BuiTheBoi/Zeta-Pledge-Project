@@ -5,10 +5,15 @@
 #include <string>
 #include <vector>
 #include <cctype>
-
+#include <iomanip>
+#include <thread>
+#include <chrono>
+#include <stdlib.h>
+#include <unistd.h> 
 #include "plant.hpp"
 
 using namespace std;
+// ========================================COLOR VARIABLES=======================================================================
 
 // the following are UBUNTU/LINUX, and MacOS ONLY terminal color codes.
 // Reference: https://stackoverflow.com/questions/9158150/colored-output-in-c/9158263
@@ -29,7 +34,9 @@ using namespace std;
 #define BOLDMAGENTA "\033[1m\033[35m"      /* Bold Magenta */
 #define BOLDCYAN    "\033[1m\033[36m"      /* Bold Cyan */
 #define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
-// --------------------------------------------------------------------------
+
+
+// ===================================================ASSOCIATED WITH MENU===================================================================
 
 string menu[3] = {
     "[1] Start Watering My Plants",
@@ -141,4 +148,56 @@ bool powerOff() {
     return true;
 }
 
+// ===================================================ASSOCIATED WITH KEEPING TRACK OF TIME==================================================================
+// Reference: https://www.geeksforgeeks.org/timer-c-using-system-calls/ 
+
+// hours, minutes, seconds of timer
+int hours = 0;
+int minutes = 0;
+int seconds = 0;
+  
+// function to display the timer
+void displayClock()
+{
+    // system call to clear the screen
+    system("clear");
+  
+    cout << setfill(' ') << setw(55) << "         TIMER         \n";
+    cout << setfill(' ') << setw(55) << " --------------------------\n";
+    cout << setfill(' ') << setw(29);
+    cout << "| " << setfill('0') << setw(2) << hours << " hrs | ";
+    cout << setfill('0') << setw(2) << minutes << " min | ";
+    cout << setfill('0') << setw(2) << seconds << " sec |" << endl;
+    cout << setfill(' ') << setw(55) << " --------------------------\n";
+}
+  
+void timer()
+{
+    // infinte loop because timer will keep 
+    // counting. To kill the process press
+    // Ctrl+D. If it does not work ask
+    // ubuntu for other ways.
+    while (true) {
+          
+        // display the timer
+        displayClock();
+  
+        // sleep system call to sleep 
+        // for 1 second
+        sleep(1);
+  
+        // increment seconds
+        seconds++;
+        
+        // if seconds reaches 60
+        if (seconds == 10) {
+            cout << "Yur plant has been watered :D" << endl;
+            moveOn();
+            break;
+        }
+    }
+}
+
 #endif // ACCESSORIES
+
+// ====================================================================================================================================
