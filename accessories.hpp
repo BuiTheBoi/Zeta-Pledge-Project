@@ -100,13 +100,17 @@ void printPlantStatus(Plant& currentPlant, int plantNumber) {
         
         // Input validation
         while (newHour > 24 || newHour < 1) {
-            cout << RED <<"Invalid input. Please re-enter your hours (1-24) " << RESET;
+            cout << RED <<"Invalid input. Please re-enter your hours (1-24): " << RESET;
             cin >> newHour;
         }
         currentPlant.setHour(newHour);
 
         cout << YELLOW << "How much water do you want this plant to flow? " << RESET;
         cin >> newWaterFlow;
+        if (newWaterFlow <= 0) {
+            cout << RED << "Input must be a positive number. Please try again: " << RESET;
+            cin >> newWaterFlow;
+        }
         currentPlant.setWaterFlow(newWaterFlow);
     }
     else if(tolower(yesOrNo) == 'n') {
@@ -191,7 +195,7 @@ void timer()
         
         // if seconds reaches 60
         if (seconds == 11) {
-            cout << "Yur plant has been watered :D" << endl;
+            cout << "Your plant has been watered :D" << endl;
             moveOn();
             break;
         }

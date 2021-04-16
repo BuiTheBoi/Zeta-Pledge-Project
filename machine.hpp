@@ -67,7 +67,15 @@ void Machine::waterPlants(Plant& myPlant) {
 }
 
 void Machine::activate() {
-    timer();
+    if (waterDetected(Plant& myPlant)) {
+        timer();
+        waterPlants(myPlant);
+    }
+    else {
+        cout << RED << "No more water. Please refil your container" << RESET << endl;
+        cout << YELLOW << "[Press enter to continue]" << endl;
+        moveOn();
+    }
 }
 
 

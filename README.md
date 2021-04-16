@@ -12,26 +12,25 @@ When starting the machine, the program takes the current time and determines whe
 
 ## Software Team Contributors:
 
-Justin Bui
-Alejendro Osorio
-Mariah Olvera
-Benson Lee
-Tina Huynh
-Carina Adrianzen
-Jason Anthony
+- Justin Bui
+- Alejendro Osorio
+- Mariah Olvera
+- Benson Lee
+- Tina Huynh
+- Carina Adrianzen
+- Jason Anthony
 
 ## Structural Team Contributors:
 
-Elias Becerra
-Branden Villarino
-Massimo Villareal
-Katelyn Mercene
-Thienan Nguyen
-Mauricio Martinez
-Ismael Guzman
+- Elias Becerra
+- Branden Villarino
+- Massimo Villareal
+- Katelyn Mercene
+- Thienan Nguyen
+- Mauricio Martinez
+- Ismael Guzman
 
 ## How to compile:
 
     g++ driver.cpp
     ./a.out
-
