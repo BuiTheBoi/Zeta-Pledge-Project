@@ -82,7 +82,7 @@ int main() {
 
         switch (choice) {
             case 1:     // Picking which plant save to water
-                myMachine.activate();
+                myMachine.activate(mySaves);
                 break;
             case 2:     // View all options
                 view(mySaves);

@@ -90,11 +90,13 @@ void printPlantStatus(Plant& currentPlant, int plantNumber) {
     cin >> yesOrNo;
 
     if (tolower(yesOrNo) == 'y') {
+        // Inputting plant name
         cout << YELLOW << "What will be your new plant name? " << RESET;
         cin.ignore();
         getline(cin, newName);
         currentPlant.setPlantName(newName);
 
+        // Inputting hours to plant
         cout << YELLOW << "At what hour of the day do you want to water your plant? (1-24) " << RESET;
         cin >> newHour;
         
@@ -105,6 +107,7 @@ void printPlantStatus(Plant& currentPlant, int plantNumber) {
         }
         currentPlant.setHour(newHour);
 
+        // Input water distributed 
         cout << YELLOW << "How much water do you want this plant to flow? " << RESET;
         cin >> newWaterFlow;
         if (newWaterFlow <= 0) {
@@ -112,6 +115,7 @@ void printPlantStatus(Plant& currentPlant, int plantNumber) {
             cin >> newWaterFlow;
         }
         currentPlant.setWaterFlow(newWaterFlow);
+        system("clear");
     }
     else if(tolower(yesOrNo) == 'n') {
         system("clear");

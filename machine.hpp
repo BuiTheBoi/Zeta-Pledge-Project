@@ -26,7 +26,7 @@ public:
 
     //Others
     void waterPlants(Plant&);
-    void activate();
+    void activate(vector<Plant>&);
 };
 
 
@@ -62,20 +62,25 @@ double Machine::getWaterCapacity() { return waterCapacity_; }
 
 // --------------- OTHERS ---------------
 void Machine::waterPlants(Plant& myPlant) {
-    timer();
     waterCapacity_ -= myPlant.getWaterFlow();
 }
 
-void Machine::activate() {
-    if (waterDetected(Plant& myPlant)) {
-        timer();
-        waterPlants(myPlant);
+void Machine::activate(vector<Plant>& plants) {
+    int plantToWater;
+    
+    // Printing menu
+    cout << BOLDBLUE << "Plant to Water:" << RESET << endl << endl;
+    for (int i = 0; i < 3; ++i) {
+        cout << "[" << i + 1 << "]" << plants[i].getPlantName() << endl;
     }
-    else {
-        cout << RED << "No more water. Please refil your container" << RESET << endl;
-        cout << YELLOW << "[Press enter to continue]" << endl;
-        moveOn();
-    }
+    cout << YELLOW << "[Enter the corresponding plant number to water]" << RESET << endl;
+    cin >> plantToWater;
+    system("clear");
+
+    timer();
+    waterPlants(plants[plantToWater]);
+    
+
 }
 
 
